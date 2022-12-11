@@ -1,6 +1,13 @@
+/*
+- Description: This file contains the routing and the services running for both chat and payment services
+- Feature: Backend for both user profiles, payment and chat feature
+- Author: Trushita Maurya, Shiva Shankar Pandillapalli (Both)
+*/
+
 /**
  * References:
  * https://www.section.io/engineering-education/nodejs-mongoosejs-mongodb/
+ * https://socket.io/docs/v4/
  */
 
 const express = require("express");
@@ -18,6 +25,7 @@ const io = require("socket.io")(3001, {
   cors: {
     origin: "*",
   },
+  credentials: true,
 });
 
 /**
@@ -123,4 +131,13 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.listen(4242, () => console.log("Node server listening on port 4242!"));
+app.listen(
+  4242,
+  {
+    cors: {
+      origin: "*",
+    },
+    credentials: true,
+  },
+  () => console.log("Node server listening on port 4242!")
+);
