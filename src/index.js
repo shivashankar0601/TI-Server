@@ -133,11 +133,5 @@ app.post("/create-payment-intent", async (req, res) => {
 
 app.listen(
   4242,
-  {
-    cors: {
-      origin: "*",
-    },
-    credentials: true,
-  },
   () => console.log("Node server listening on port 4242!")
 );
